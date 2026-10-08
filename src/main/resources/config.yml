@@ -1,0 +1,188 @@
+# ===== MysticCore config =====
+starting-tokens: 1000          # токены новому игроку
+survival-world: world          # мир выживания (обычная карта)
+lobby-world: mystic_lobby      # мир лобби (создаётся сам, void)
+
+rtp:
+  radius: 3000                 # максимальная дальность от спавна
+  min-radius: 200
+  cooldown-seconds: 30
+
+# ---------- Мистические сундуки (аирдропы) ----------
+drops:
+  interval-minutes: 3          # раз в сколько минут новая волна
+  per-wave: 3                  # сколько сундуков в одной волне (чем больше, тем лучше!)
+  min-radius: 300
+  max-radius: 3000
+  lifetime-after-open-seconds: 300
+  only-if-players-online: true
+  tier-weights: {poor: 50, solid: 28, rich: 14, elite: 6, crusher: 2}
+
+tiers:                         # price = цена в токенах в обычном магазине сундуков
+  poor:
+    name: "&7Бедный сундук"
+    price: 100
+    unlock-seconds: 30
+    block: BARREL
+    icon: BARREL
+  solid:
+    name: "&aСолидный сундук"
+    price: 500
+    unlock-seconds: 40
+    block: CHEST
+    icon: CHEST
+  rich:
+    name: "&6Богатый сундук"
+    price: 2000
+    unlock-seconds: 50
+    block: ENDER_CHEST
+    icon: ENDER_CHEST
+  elite:
+    name: "&5Элитный сундук"
+    price: 6000
+    unlock-seconds: 60
+    block: PURPLE_SHULKER_BOX
+    icon: PURPLE_SHULKER_BOX
+  crusher:
+    name: "&c&lСундук Крушителя"
+    price: 16500
+    unlock-seconds: 75
+    block: BEACON
+    icon: NETHERITE_BLOCK
+
+# ---------- Донат маркет (ТОКЕНЫ, высокие цены) ----------
+market:
+  airdrop-prices: {poor: 5000, solid: 15000, rich: 40000, elite: 90000, crusher: 250000}
+  sphere-prices: {EMPTY: 10000, FUGU: 60000, POSEIDON: 120000, HADES: 150000, ZEUS: 180000, HERMES: 100000, ATHENA: 110000, ARES: 160000, APOLLO: 130000}
+
+# ---------- Магазин (МОНЕТКИ) ----------
+shop:
+  sphere-prices: {EMPTY: 600, FUGU: 2500, POSEIDON: 4000, HADES: 4500, ZEUS: 5000, HERMES: 3500, ATHENA: 3800, ARES: 4200, APOLLO: 4000}
+
+# ---------- Чёрный рынок ----------
+black-market:
+  interval-minutes: 40         # как часто открывается
+  duration-minutes: 10         # сколько работает
+
+auction:
+  max-lots-per-player: 5
+
+# ---------- Босс Мама Фугу ----------
+boss:
+  spawn-interval-minutes: 7
+  lifetime-minutes: 10
+  health: 400
+  aura-radius: 7
+  beam-damage: 8
+  burst-radius: 5
+  burst-damage: 6
+  fish-reward: 12
+  reward-tokens: 500
+trade:
+  tokens-per-five: 250
+
+mine:
+  reset-minutes: 3
+  coins-per-ore: 3
+
+rewards:
+  tokens-1h: 50
+  tokens-3h: 200
+  tokens-5h: 400
+  coins-per-hour: 100
+  daily-tokens: 150
+  daily-coins: 300
+
+# ---------- Сферы ----------
+head-drop-chance: 100          # % выпадения головы при убийстве игрока игроком
+# Текстуры голов: base64 Value ИЛИ 64-символьный хеш с minecraft-heads.com. Пусто = временные головы MHF_*.
+textures: {EMPTY: "", FUGU: "", POSEIDON: "", HADES: "", ZEUS: "", HERMES: "", ATHENA: "", ARES: "", APOLLO: ""}
+
+fugu: {radius: 2.0, poison-level: 1, slow-level: 2, armor-bonus: 2}
+poseidon: {chance: 40, slow-level: 2, slow-seconds: 4, armor-bonus: 4, health-loss: 4, swim-speed: 1.0}
+hades: {chance: 18, require-both-hands: false, fire-seconds: 6, speed-level: 1, armor-loss: 3, damage-bonus: 2, fireball-power: 2, fireball-break-blocks: false}
+zeus: {chance: 18, haste-level: 1, armor-loss: 2, attack-speed: 0.4, extra-damage: 6.0, sword-only: false}
+hermes: {speed-level: 2, jump-level: 1, health-loss: 6, safe-fall: 8}
+athena: {resistance-level: 1, attack-loss: 2, toughness: 4, knockback-resist: 0.4}
+ares: {chance: 20, wither-seconds: 3, damage-bonus: 4, attack-speed: 0.3, health-loss: 4}
+apollo: {chance: 15, heal: 4, regen-level: 1, luck: 1, attack-loss: 1}
+
+messages:
+  no-permission: "&cНет прав."
+  reloaded: "&aКонфиг перезагружен."
+  given: "&aВыдано: &f{item} &ax{amount} &aигроку &f{player}"
+  poseidon-proc: "&b🌊 Враг замедлен!"
+  hades-proc: "&c🔥 Фаербол!"
+  zeus-proc: "&e⚡ Молния!"
+  ares-proc: "&4⚔ Иссушение!"
+  apollo-proc: "&6☀ Исцеление!"
+
+# ---------- Скупщик и Биржа (монетки) ----------
+exchange:
+  impact-per-item: 0.0015      # на сколько падает цена за каждую проданную штуку
+  fee-percent: 0               # налог скупщика, %
+  min-multiplier: 0.4
+  max-multiplier: 2.2
+  prices:                      # базовая цена за 1 шт. в монетках
+    COAL: 2
+    RAW_COPPER: 2
+    COPPER_INGOT: 3
+    RAW_IRON: 4
+    IRON_INGOT: 6
+    RAW_GOLD: 8
+    GOLD_INGOT: 12
+    REDSTONE: 2
+    LAPIS_LAZULI: 3
+    QUARTZ: 4
+    AMETHYST_SHARD: 5
+    DIAMOND: 60
+    EMERALD: 40
+    ANCIENT_DEBRIS: 120
+    NETHERITE_SCRAP: 150
+    NETHERITE_INGOT: 800
+    DIAMOND_BLOCK: 540
+    EMERALD_BLOCK: 360
+    OBSIDIAN: 8
+    COBBLESTONE: 0.3
+    OAK_LOG: 1
+    SPRUCE_LOG: 1
+    BIRCH_LOG: 1
+    JUNGLE_LOG: 1
+    ACACIA_LOG: 1
+    DARK_OAK_LOG: 1
+    WHEAT: 1
+    CARROT: 1
+    POTATO: 1
+    BEETROOT: 1
+    SUGAR_CANE: 1
+    PUMPKIN: 2
+    MELON_SLICE: 0.5
+    COCOA_BEANS: 2
+    NETHER_WART: 2
+    BONE: 1
+    STRING: 1
+    GUNPOWDER: 3
+    ROTTEN_FLESH: 0.5
+    SPIDER_EYE: 2
+    SLIME_BALL: 4
+    LEATHER: 2
+    FEATHER: 1
+    ENDER_PEARL: 10
+    BLAZE_ROD: 12
+    GHAST_TEAR: 40
+    PHANTOM_MEMBRANE: 8
+    SHULKER_SHELL: 40
+    NETHER_STAR: 500
+    COD: 1.5
+    SALMON: 2
+    TROPICAL_FISH: 4
+    PUFFERFISH: 5
+
+# ---------- Задания и сезонный пропуск ----------
+quests:
+  timezone-offset-hours: 3     # сдвиг от UTC (3 = Москва) для сброса заданий в полночь
+  coin-multiplier: 1.0         # множитель наград монетками
+season:
+  days: 30
+  xp-per-level: 120
+  premium-price-tokens: 25000

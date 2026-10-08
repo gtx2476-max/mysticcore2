@@ -1,0 +1,58 @@
+name: MysticCore
+version: 1.0.0
+main: ru.mysticcore.MysticCore
+api-version: '1.21'
+author: MysticCore
+description: Mystic chests, spheres, talismans, black market, donate market, auction, boss, lobby
+commands:
+  menu:
+    description: Главное меню
+    aliases: [hub]
+  donate:
+    description: Донат маркет (токены)
+  shop:
+    description: Магазин за монетки
+  mystic:
+    description: Мистические сундуки / админ-команды
+    aliases: [mysticchests]
+  lobby:
+    description: В лобби
+  mine:
+    description: Автошахта
+  ah:
+    description: Аукцион
+    aliases: [auction]
+  coins:
+    description: Баланс
+    aliases: [balance, bal]
+  rtp:
+    description: Случайная телепортация
+  airdrops:
+    description: Информация о сундуках
+    aliases: [airdrop, ad]
+  blackmarket:
+    description: Чёрный рынок
+    aliases: [bm, market]
+  spheres:
+    description: Меню сфер
+    aliases: [sphere, sfery]
+  quests:
+    description: Задания
+    aliases: [quest, q, daily]
+  season:
+    description: Сезонный пропуск
+    aliases: [pass, bp]
+  sell:
+    description: Скупщик
+    aliases: [buyer]
+  bourse:
+    description: Биржа (таблица цен)
+    aliases: [exchange, birzha]
+permissions:
+  mystic.admin:
+    description: Админ-команды MysticCore (обходит запрет команд в лобби)
+    default: op
+  spheres.use:
+    default: true
+  spheres.admin:
+    default: op
